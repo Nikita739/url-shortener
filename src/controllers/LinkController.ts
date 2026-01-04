@@ -1,6 +1,7 @@
 import {Request, Response} from "express";
 import FieldValidation from "../validation/FieldValidation";
 import RequestValidationService from "../services/requestValidationService";
+import LinkService from "../services/LinkService";
 
 class LinkController {
     async createLink(req: Request, res: Response) {
@@ -11,8 +12,9 @@ class LinkController {
         // TODO check for same link in DB
 
         // TODO encode link
+        const linkData = await LinkService.CreateLink(req.body.rawUrl!);
 
-        res.json({validationRes: result});
+        res.json({linkData: linkData});
     }
 
     async getLink(req: Request, res: Response) {
