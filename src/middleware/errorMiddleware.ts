@@ -6,8 +6,8 @@ type Exceptions = AuthException | BadRequestException | string;
 
 export default function ErrorMiddleware(error: Exceptions, req: Request, res: Response, next: NextFunction) {
     if(typeof error === "string") {
-        res.status(400).send(error);
+        res.status(500).send(error);
     } else {
-        res.status(error.statusCode).send(error.message);
+        res.status(error?.statusCode || 500).send(error?.message);
     }
 }
