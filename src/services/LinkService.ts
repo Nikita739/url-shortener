@@ -10,6 +10,11 @@ class LinkService {
 
         return new LinkDTO({shortenedUrl: shortenedUrl, rawUrl: rawUrl, id: 1});
     }
+
+    async GetLink(shortenedUrl: string): Promise<LinkDTO> {
+        // TODO get link by uuid
+        return new LinkDTO({shortenedUrl});
+    }
 }
 
 export default new LinkService();

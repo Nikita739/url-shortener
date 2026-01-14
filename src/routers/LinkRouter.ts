@@ -3,6 +3,6 @@ import LinkController from "../controllers/LinkController";
 
 const linkRouter = Router();
 linkRouter.post('/create', LinkController.createLink);
-linkRouter.get('/', LinkController.getLink);
+linkRouter.get('/:uuid', LinkController.getLink);
 
 export default linkRouter;
