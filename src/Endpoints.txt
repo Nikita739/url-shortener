@@ -21,3 +21,22 @@ response: {
     user: {username, email},
     token: JwtAuthToken
 }
+
+
+
+/link/create POST AUTH
+body: {rawUrl}
+
+response: {
+    rawUrl, shortenedUrl
+}
+
+
+
+/link/:shortened GET
+body: none
+parmams: shortened
+
+response: {
+    rawUrl, shortenedUrl
+}
