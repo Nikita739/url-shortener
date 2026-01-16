@@ -31,6 +31,12 @@ const Link = sequelize.define("Link", {
     rawUrl: {
         type: DataTypes.STRING,
         unique: false
+    },
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        unique: true,
+        autoIncrement: true
     }
 });
 
