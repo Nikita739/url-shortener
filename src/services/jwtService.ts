@@ -1,9 +1,8 @@
-import jwt, {JwtPayload} from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 class JwtService {
     sign(payload: object): string {
-        const token = jwt.sign(payload, process.env.SECRET_JWT!, {expiresIn: "30m"});
-        return token;
+        return jwt.sign(payload, process.env.SECRET_JWT!, {expiresIn: "30m"});
     }
 
     verify(token: string): object | string {

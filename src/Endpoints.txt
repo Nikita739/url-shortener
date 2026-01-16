@@ -1,0 +1,11 @@
+/user/register
+body: {
+    email, password, username
+}
+
+response: {
+    user: {
+        username, email
+    },
+    token: JwtAuthToken
+}
