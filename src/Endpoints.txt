@@ -35,7 +35,18 @@ response: {
 
 /link/:shortened GET
 body: none
-parmams: shortened
+params: shortened
+
+response: {
+    rawUrl, shortenedUrl
+}
+
+
+
+
+/link/:shortened PUT AUTH
+params: shortened
+body: {rawUrl}
 
 response: {
     rawUrl, shortenedUrl

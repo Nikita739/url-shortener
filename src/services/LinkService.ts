@@ -40,6 +40,19 @@ class LinkService {
 
         return new LinkDTO(link);
     }
+
+    async UpdateLink(newUrl: string, shortenedUrl: string): Promise<LinkDTO> {
+        const candidate = await Link.findOne({
+            where: {shortenedUrl: shortenedUrl}
+        })
+
+        if(!candidate) {
+            throw new BadRequestException("Incorrect short code provided");
+        }
+
+        const updatedLink = await candidate.update({rawUrl: newUrl});
+        return new LinkDTO(updatedLink);
+    }
 }
 
 export default new LinkService();

@@ -34,6 +34,20 @@ class LinkController {
         return res.json(linkData);
         //res.status(301).redirect(linkData.rawUrl);
     }
+
+    async updateLink(req: Request, res: Response) {
+        const params = {...req.params};
+        const validation = new FieldValidation(["uuid"], [(val: string) => UUIDService.IsValid(val)], {...params});
+        validation.validate();
+
+        const {rawUrl} = req.body;
+        if(!rawUrl) {
+            throw new BadRequestException("Url not provided");
+        }
+
+        const linkDTO = await LinkService.UpdateLink(rawUrl, params.uuid!);
+        return res.json(linkDTO);
+    }
 }
 
 export default new LinkController();

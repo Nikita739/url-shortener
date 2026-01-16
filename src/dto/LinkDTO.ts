@@ -1,10 +1,10 @@
 class LinkDTO {
-    id: number;
+    //id: number;
     shortenedUrl: string;
     rawUrl: string;
 
     constructor(params: any) {
-        this.id = params?.id || 0;
+        //this.id = params?.id || 0;
         this.shortenedUrl = params.shortenedUrl || "";
         this.rawUrl = params.rawUrl || "";
     }
