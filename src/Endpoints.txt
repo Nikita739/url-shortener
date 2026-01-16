@@ -1,4 +1,4 @@
-/user/register
+/user/register POST
 body: {
     email, password, username
 }
@@ -7,5 +7,17 @@ response: {
     user: {
         username, email
     },
+    token: JwtAuthToken
+}
+
+
+
+/user/login POST
+body: {
+    email, password
+}
+
+response: {
+    user: {username, email},
     token: JwtAuthToken
 }
